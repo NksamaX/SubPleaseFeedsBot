@@ -56,6 +56,7 @@ async def feeds():
                 for x in lnk:
                     quality = x['res']
                     links = x['magnet']
+                    
 
                     data = f"{quality}: ```{links}```\n\n"
 
@@ -66,7 +67,7 @@ async def feeds():
                         k = data
 
                 db['latest'] = anime_name
-                await bot.send_message(CHAT_ID , f"**{anime_name}**:\n\n{k}" , parse_mode="markdown")
+                await bot.send_message(CHAT_ID , f"**{anime_name}** **Ep**: {ep}:\n\n{k}" , parse_mode="markdown")
                 print(db)
                 time.sleep(300)
 

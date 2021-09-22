@@ -1,0 +1,43 @@
+{
+    "name": "feeds",
+    "description": "anime feeds",
+    "logo": "https://telegra.ph/file/b9f5607f4a24f9c40295f.png",
+    "keywords": [
+        "feeds",
+        "telegram",
+        "anime",
+        "python3"
+    ],
+
+    "repository": "https://github.com/nksamaX/SubPleaseFeedsBot",
+    "website": "https://github.com/nksamaX",
+    "succes_url": "https://t.me/nk_guy",
+    "stack": "Heroku-20",
+    "env": {
+        "API_ID": {
+            "description": "my.telegram.org",
+            "value": "",
+            "required": true
+        },
+
+        "API_HASH": {
+            "description": "my.telegram.org",
+            "value": "",
+            "required": true
+        }, 
+
+        "TOKEN": {
+            "description": "@botfather",
+            "value": "",
+            "required": true
+        }
+
+
+    },
+
+    "formation": {
+        "Feeds": {
+            "quantity": 1,
+            "size": "free"
+        }
+    }

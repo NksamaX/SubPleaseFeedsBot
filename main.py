@@ -29,9 +29,9 @@ kek = []
 
 async def feeds():
     async with bot:
+        url = 'https://subsplease.org/api/?f=latest&tz=Canada/central'
         while True:
 
-            url = 'https://subsplease.org/api/?f=latest&tz=Canada/central'
             res = get(url).json()
 
             k = None
@@ -40,32 +40,27 @@ async def feeds():
 
 
             anime_name = res[kek[0]]['show']
-            ep = res[kek[0]]['episode']
-
-
-
-
-            lnk = res[kek[0]]['downloads']
-            
             last = db['latest'] or ""
-            
+
             if last != anime_name:
 
-            
+
+
+                ep = res[kek[0]]['episode']
+
+
+
+
+                lnk = res[kek[0]]['downloads']
 
                 for x in lnk:
                     quality = x['res']
                     links = x['magnet']
-                    
+
 
                     data = f"{quality}: ```{links}```\n\n"
 
-                    if k:
-                        k = f"{k}\n{data}"
-
-                    else:
-                        k = data
-
+                    k = f"{k}\n{data}" if k else data
                 db['latest'] = anime_name
                 await bot.send_message(int(CHAT_ID) , f"**{anime_name}** **Ep**: {ep}:\n\n{k}" , parse_mode="markdown")
                 print(db)
